@@ -25,3 +25,13 @@ body {
   outline: none;
   border: 2px solid rgb(44, 162, 216);
 }
+
+.main-data {
+  display: flex;
+  align-items: center;
+}
+
+.flag-icon {
+  margin-right: 20px;
+  margin-left: 20px;
+}

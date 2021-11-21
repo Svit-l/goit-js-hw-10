@@ -5,3 +5,5 @@ export const getRefs = () => {
     countryInfo: document.querySelector('.country-info'),
   };
 };
+
+// console.log(getRefs());
