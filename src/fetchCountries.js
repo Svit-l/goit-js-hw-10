@@ -14,7 +14,7 @@ function getCountries() {
 
 getCountries();
 
-// =========== Получение с бекэнда данных одной строки в виде массива объектов всех значений
+// =========== Получение с бекэнда данных одной страны в виде массива объектов всех значений
 function getCountryName(name) {
   return fetch(`${BASE_URL}/name/${name}`).then(res => {
     if (res.ok) {
@@ -26,7 +26,7 @@ function getCountryName(name) {
 
 getCountryName('Peru');
 
-// =========== І способ. Получение с бекэнда данных одной строки в виде массива выбранных объектов
+// =========== І способ. Получение с бекэнда данных одной страны в виде массива выбранных объектов
 function fetchCountriesData(setData) {
   const PARAM_URL = `https://restcountries.com/v3.1/name/${setData}?fields=name,capital,population,flags,languages`;
   return fetch(`${PARAM_URL}`)
