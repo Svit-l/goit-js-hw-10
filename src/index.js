@@ -15,7 +15,9 @@ refs.searchBox.addEventListener('input', debounce(inputHandling, DEBOUNCE_DELAY)
 function inputHandling() {
   const inputData = refs.searchBox.value.trim();
   if (inputData !== '') {
-    fetchCountries(inputData).then(countryList);
+    fetchCountries(inputData)
+      .then(countryList)
+      .catch(error => Notify.failure(`Oops, there is no country with that name`));
   }
   // console.log(inputData);
   refs.countryList.innerHTML === '';
