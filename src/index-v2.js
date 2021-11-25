@@ -4,7 +4,7 @@ import './css/styles.css';
 import { getRefs } from './getRefs';
 const refs = getRefs();
 // import { fetchCountriesData } from './renderOneContry';
-const BASE_URL = 'https://restcountries.com/v3.1';
+const BASE_URL = 'https://restcountries.com/v2';
 // import { fetchCountries } from './fetchCountries';
 const DEBOUNCE_DELAY = 300;
 
@@ -17,6 +17,7 @@ function inputHandling() {
   if (inputData !== '') {
     fetchCountries(inputData).then(countryList);
   }
+  // refs.countryList.textContent = inputData;
   // console.log(inputData);
   refs.countryList.innerHTML === '';
   return;
@@ -47,32 +48,55 @@ function countryList(countriesData) {
         ({ name, flags }) =>
           `<li class="main-data">
           <img class="flag-icon" width="30" height="20" src="${flags.svg}" alt="country flag image"></img>
-          <p class="country-list__name">${name.common}</p>
+          <p class="country-list__name">${name}</p>
         </li>`,
       )
       .join('');
 
     refs.countryList.insertAdjacentHTML('beforeend', markupCountryList);
   } else if (dataLength === 1) {
-    const languageRef = Object.values(countriesData[0].languages).join(', ');
-    console.log(languageRef);
+    const countryData = countriesData[0];
+    console.log(countryData);
+    const countryName = countryData.name['common'];
+    const countryOfficialName = countryData.name.official;
+    const countryCapital = countryData.capital[0];
+    const countryPopulation = countryData.population;
+    const countryLanguage = countryData.languages[0];
+    const countryFlags = countryData.flags.svg;
+    console.log(countryFlags);
+    const countryLanguagesStr = Object.values(countryLanguage).join(', ');
 
     const markup = countriesData
       .map(
-        ({ name, capital, population, flags }) => `
-        <div class="main-data">
+        ({ name, capital, population, flags }) =>
+          `<div class="main-data">
           <img class="flag-icon" width="60" height="40" src="${flags.svg}" alt="country flag image">
-          <h1 class="country-name">${name.common}</h1>
+          <h1 class="country-name">${name}</h1>
         </div>
         <ul class="country-data">
-            <li class="country-official-name">Official name:<b> ${name.official}</b></li>
             <li class="country-capital">Capital: <b> ${capital}</b></li>
             <li class="country-population">Population: <b>${population}</b></li>
-            <li class="country-languages">Languages: <b>${languageRef}</b></li>
+            <li class="country-languages">Languages: <b>${countryLanguagesStr}</b></li>
         </ul>`,
       )
       .join('');
     refs.countryInfo.innerHTML = markup;
+    // const markupCountyData = countryData
+    //   .map(
+    //     ({ name, flag, capital }) =>
+    //       `<div class="main-data">
+    //       <img class="flag-icon" width="60" height="40" src="${countryFlags}" alt="country flag image">
+    //       <h1 class="country-name">${countryName}</h1>
+    //     </div>
+    //     <ul class="country-data">
+    //         <li class="country-official-name">Official name:<b> ${countryOfficialName}</b></li>
+    //         <li class="country-capital">Capital: <b> ${countryCapital}</b></li>
+    //         <li class="country-population">Population: <b>${countryPopulation}</b></li>
+    //         <li class="country-languages">Languages: <b>${countryLanguagesStr}</b></li>
+    //     </ul>`,
+    //   )
+    //   .join('');
+    // refs.countryList.insertAdjacentHTML('beforeend', markupCountyData);
   } else {
     refs.countryList.innerHTML = '';
     Notify.info('Too many matches found. Please enter a more specific name.');

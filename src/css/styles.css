@@ -25,7 +25,7 @@ body {
     'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #d6e6f8;
+  background-color: #d9dde2;
   color: #212121;
   line-height: 1.5;
 }
@@ -45,6 +45,10 @@ body {
   font-weight: 500;
 }
 
+.country-info {
+  padding-left: 20px;
+  font-weight: 500;
+}
 .flag-icon {
   margin-right: 10px;
 }
