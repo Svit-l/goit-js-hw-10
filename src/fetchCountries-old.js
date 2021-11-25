@@ -80,51 +80,9 @@ function fetchCountriesData(setData) {
         refs.countryInfo.insertAdjacentHTML('beforeend', markup);
       },
     );
-
-  //   markup();
-
-  //   console.log(
-  //     countryName,
-  //     countryOfficialName,
-  //     countryCapital,
-  //     countryPopulation,
-  //     countryLanguages,
-  //   );
-
-  //   ;
-
-  //   console.log(countryData);
-  //   console.log(Object.keys(countryData).length);
-  //   console.log(countryName);
-  //   console.log(countryOfficialName);
-  //   console.log(countryCapital);
-
-  //   console.log(countryPopulation);
-  //   console.log(countryLanguagesStr);
 }
 
 fetchCountriesData('Peru');
-
-// console.log(markup());
-
-// function renderCountryData({
-//         countryName,
-//         countryOfficialName,
-//         countryCapital,
-//         countryPopulation,
-//         countryLanguages,
-// }) {
-//   `  <h1 class="country-name">${countryName}</h1>
-//         <h2 class="country-official-name">${countryOfficialName}</h2>
-//         <svg class="flag-icon" width="20" height="auto">
-//             <use href=""></use>
-//         </svg>
-//         <ul class="country-data">
-//             <li class="country-capital">Capital: ${countryCapital}</li>
-//             <li class="country-population">Population: ${countryPopulation}</li>
-//             <li class="country-languages">Languages: ${countryLanguages}</li>
-//         </ul>`;
-// }.join('');
 
 // +++++++++++ Пример из лекций
 // export function fetchCountries(name) {
