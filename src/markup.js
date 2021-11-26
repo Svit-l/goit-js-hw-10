@@ -16,6 +16,10 @@ export function markupAllCountries(countriesData) {
 }
 
 export function markupCountryData(countriesData) {
+  const languageStr = countriesData
+    .flatMap(country => country.languages)
+    .map(language => language.name)
+    .join(', ');
   const markup = countriesData
     .map(
       ({ name, capital, population, flags }) => `
@@ -26,7 +30,7 @@ export function markupCountryData(countriesData) {
         <ul class="country-data">
             <li class="country-capital">Capital: <b> ${capital}</b></li>
             <li class="country-population">Population: <b>${population}</b></li>
-            <li class="country-languages">Languages: <b>${countriesData[0].name}</b></li>
+            <li class="country-languages">Languages: <b>${languageStr}</b></li>
         </ul>`,
     )
     .join('');
