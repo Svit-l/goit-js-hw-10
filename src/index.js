@@ -16,14 +16,14 @@ function inputHandling() {
     fetchCountries(inputData)
       .then(countryRendering)
       .catch(error => {
-        refs.countryList.innerHTML = '';
-        refs.countryInfo.innerHTML = '';
         Notify.failure(`Oops, there is no country with that name`, {
           width: '200px',
           position: 'center-top',
           distance: '20px',
           opacity: 1,
         });
+        refs.countryList.innerHTML = '';
+        refs.countryInfo.innerHTML = '';
       });
   }
   // console.log(inputData);
@@ -31,8 +31,8 @@ function inputHandling() {
 }
 
 function countryRendering(countriesData) {
-  // console.log(countriesData);
-  // console.log(countriesData.length);
+  console.log(countriesData);
+  console.log(countriesData.length);
   refs.countryList.innerHTML = '';
   refs.countryInfo.innerHTML = '';
 
