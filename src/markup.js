@@ -30,5 +30,5 @@ export function markupCountryData(countriesData) {
         </ul>`,
     )
     .join('');
-  refs.countryInfo.innerHTML = markup;
+  refs.countryInfo.insertAdjacentHTML('beforeend', markup);
 }
