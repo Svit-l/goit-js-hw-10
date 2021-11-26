@@ -20,6 +20,7 @@ function inputHandling() {
         refs.countryInfo.innerHTML = '';
         Notify.failure(`Oops, there is no country with that name`, {
           width: '200px',
+          position: 'center-top',
           distance: '20px',
           opacity: 1,
         });
@@ -47,6 +48,7 @@ function countryRendering(countriesData) {
   } else {
     Notify.info('Too many matches found. Please enter a more specific name.', {
       width: '200px',
+      position: 'center-top',
       distance: '20px',
       opacity: 1,
     });
