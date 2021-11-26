@@ -26,13 +26,13 @@ function inputHandling() {
         });
       });
   }
-  // console.log(inputData);
-  return;
+  refs.countryList.innerHTML = '';
+  refs.countryInfo.innerHTML = '';
 }
 
 function countryRendering(countriesData) {
-  console.log(countriesData);
-  console.log(countriesData.length);
+  // console.log(countriesData);
+  // console.log(countriesData.length);
   refs.countryList.innerHTML = '';
   refs.countryInfo.innerHTML = '';
 
@@ -42,14 +42,6 @@ function countryRendering(countriesData) {
     markupAllCountries(countriesData);
   } else if (dataLength === 1) {
     markupCountryData(countriesData);
-  } else if (refs.searchBox.value === '') {
-    refs.countryList.innerHTML = '';
-    refs.countryInfo.innerHTML = '';
-    return;
-  } else if (dataLength === 0) {
-    refs.countryList.innerHTML = '';
-    refs.countryInfo.innerHTML = '';
-    return;
   } else if (dataLength > 10) {
     Notify.info('Too many matches found. Please enter a more specific name.', {
       width: '200px',
